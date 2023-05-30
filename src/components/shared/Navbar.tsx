@@ -5,6 +5,25 @@ import MoonIcon from '../icons/MoonIcon';
 import SunIcon from '../icons/SunIcon';
 import { useTheme } from '@/hooks/useTheme';
 
+const links = [
+    {
+        label:  'Inicio',
+        route: '/'
+    },
+    {
+        label:  'Sobre',
+        route: '/about'
+    },
+    {
+        label:  'Blog',
+        route: '/blog'
+    },
+    {
+        label:  'Contato',
+        route: '/contact'
+    }
+]
+
 export default function Navbar() {
     const pathname = usePathname();    
     const { theme, toggleTheme } = useTheme();
@@ -44,10 +63,17 @@ export default function Navbar() {
                     <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
                         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                        <Link href="#" className={ pathname === '/' ? active : inactive }>Dashboard</Link>
+                        {
+                            links.map(({ label, route }) => (
+                                <Link href={route} key={label} className={ pathname === route ? active : inactive }>
+                                    {label}
+                                </Link>
+                            ))
+                        }
+                        {/* <Link href="#" className={ pathname === '/' ? active : inactive }>Dashboard</Link>
                         <Link href="#" className={ pathname === '/team' ? active : inactive}>Team</Link>
                         <Link href="#" className={ pathname === '/projects' ? active : inactive }>Projects</Link>
-                        <Link href="#" className={ pathname === '/calendar' ? active : inactive }>Calendar</Link>
+                        <Link href="#" className={ pathname === '/calendar' ? active : inactive }>Calendar</Link> */}
                     </div>
                     </div>
                 </div>
