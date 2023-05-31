@@ -1,7 +1,11 @@
+import Carousel from "@/components/home/Carousel";
+import Services from "@/components/home/Services";
+
 export default function Home() {
   return (
     <>
-      <h1 className="text-6xl font-bold">Hola Mundo</h1>
+      <Carousel />
+      <Services />
     </>
   )
 }
