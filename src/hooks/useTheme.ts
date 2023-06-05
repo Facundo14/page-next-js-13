@@ -1,34 +1,49 @@
 import { useEffect, useState } from "react";
 
-const initialThemeState = () => {
-    if(typeof window !== 'undefined'){
-        if (localStorage.getItem('theme-informatteo')) {
-            return localStorage.getItem('theme-informatteo') as 'light' | 'dark'
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+const getInitialThemeState = () => {
+  if (typeof window !== 'undefined') {
+    const storedTheme = localStorage.getItem('theme-informatteo') as 'light' | 'dark';
+    if (storedTheme) {
+      return storedTheme;
     }
-    return 'light'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  return 'light';
 }
 
 export const useTheme = () => {
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = useState<'light' | 'dark'>(prefersDarkMode ? 'dark' : 'light');
 
-    const [theme, setTheme] = useState<'light' | 'dark'>(initialThemeState);
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-    useEffect(() => {
-        if (theme === 'light') {
-            document.documentElement.classList.remove('dark');
-        } else {
-            document.documentElement.classList.add('dark');
-        }
-        localStorage.setItem('theme-informatteo', theme);
-    }, [theme])
+    const handleDarkModeChange = (event) => {
+      const newTheme = event.matches ? 'dark' : 'light';
+      setTheme(newTheme);
+    };
 
-    const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
+    darkModeMediaQuery.addListener(handleDarkModeChange);
+    return () => {
+      darkModeMediaQuery.removeListener(handleDarkModeChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
     }
+    localStorage.setItem('theme-informatteo', theme);
+  }, [theme]);
 
-    return {
-        theme,
-        toggleTheme
-    }
-}
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
+  return {
+    theme,
+    toggleTheme
+  };
+};
