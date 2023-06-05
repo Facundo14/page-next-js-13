@@ -12,7 +12,7 @@ export const links = [
         route: '/blog'
     },
     {
-        label: 'Contato',
+        label: 'Contacto',
         route: '/contact'
     }
 ]

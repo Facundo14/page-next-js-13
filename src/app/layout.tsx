@@ -3,6 +3,8 @@ import './globals.css'
 import { Roboto  } from 'next/font/google'
 import 'animate.css'
 import Footer from '@/components/shared/Footer';
+import {Providers} from './providers';
+
 
 const roboto = Roboto({
   weight: '400',
@@ -19,12 +21,14 @@ export default function RootLayout({
     <html lang="es">
       <head></head>
       <body className={`${roboto.className} bg-slate-100 dark:bg-slate-900 scrollbar-thin scrollbar-thumb-red-600 scrollbar-rounded mx-24`} >
-        <Navegacion />
-        <main className="flex mx-7 border-cyan-300 border-2 dark:text-white flex-col items-center justify-between">
-          {children}
-        </main>
+        <Providers>
+          <Navegacion />
+          <main className="flex mx-7 dark:text-white flex-col items-center justify-between">
+            {children}
+          </main>
 
-        <Footer />
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

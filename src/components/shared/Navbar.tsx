@@ -1,18 +1,25 @@
 'use client'
 import { usePathname } from 'next/navigation'
-import { useTheme } from '@/hooks/useTheme';
 import Image from "next/image";
 import { MoonIcon } from '../icons/MoonIcon';
 import { SunIcon } from '../icons/SunIcon';
 import Link from 'next/link';
 import { links } from '@/constants/menu';
 import FacebookIcon from '../icons/FacebookIcon';
-import InstagramIcon from '../icons/InstagramIcon';
-import { FaInstagram } from 'react-icons/fa';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export default function Navegacion() {
     const pathname = usePathname();
-    const { theme, toggleTheme } = useTheme();
+    const [mounted, setMounted] = useState(false)
+    const { theme, setTheme } = useTheme();
+
+    useEffect(() => {
+      setMounted(true)
+    }, [])
+
+    if(!mounted) return null
+    
 
     const active = 'bg-red-600 text-white rounded-md px-3 py-2 text-sm font-medium';
     const inactive = 'text-black dark:text-white hover:bg-red-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium';
@@ -32,11 +39,11 @@ export default function Navegacion() {
                     </div>
                     {
                         theme === 'light' ?
-                            <button onClick={toggleTheme} className="text-black dark:text-white hover:bg-red-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                            <button onClick={() => setTheme('dark')} className="text-black dark:text-white hover:bg-red-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
                                 <SunIcon />
                             </button>
                             :
-                            <button onClick={toggleTheme} className="text-black dark:text-white hover:bg-red-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                            <button onClick={() => setTheme('light')} className="text-black dark:text-white hover:bg-red-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
                                 <MoonIcon />
                             </button>
                     }
