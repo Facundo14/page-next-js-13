@@ -5,25 +5,7 @@ import Image from "next/image";
 import { MoonIcon } from '../icons/MoonIcon';
 import { SunIcon } from '../icons/SunIcon';
 import Link from 'next/link';
-
-const links = [
-    {
-        label: 'Inicio',
-        route: '/'
-    },
-    {
-        label: 'Sobre',
-        route: '/about'
-    },
-    {
-        label: 'Blog',
-        route: '/blog'
-    },
-    {
-        label: 'Contato',
-        route: '/contact'
-    }
-]
+import { links } from '@/constants/menu';
 
 export default function Navegacion() {
     const pathname = usePathname();
@@ -35,8 +17,8 @@ export default function Navegacion() {
     return (
         <nav className="bg-slate-100 dark:bg-gray-900 sticky w-full z-20 top-0 left-0 border-gray-200 dark:border-gray-600">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="https://flowbite.com/" className="flex items-center">
-                    <Image width={75} height={75} src="/logo/logo.png" alt="Flowbite Logo" />
+                <a href="https://informatteo.com.ar/" className="flex items-center">
+                    <Image width={75} height={75} src="/logo/logo.png" alt="InforMatteo Logo" />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Infor<span className='text-red-600'>Matteo</span></span>
                 </a>
                 <div className="flex md:order-2">
@@ -59,7 +41,7 @@ export default function Navegacion() {
                     </button>
                 </div>
                 <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                    <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border  rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-slate-100 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-slate-100 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         {/* <li>
                             <a href="#" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
                         </li> */}
