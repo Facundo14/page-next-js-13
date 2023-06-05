@@ -21,7 +21,7 @@ export default function Navegacion() {
     if(!mounted) return null
     
 
-    const active = 'bg-red-600 text-white rounded-md px-3 py-2 text-sm font-medium';
+    const active = 'bg-red-600 text-white rounded-md px-3 py-2 text-sm font-bold';
     const inactive = 'text-black dark:text-white hover:bg-red-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium';
 
     return (
@@ -40,11 +40,11 @@ export default function Navegacion() {
                     {
                         theme === 'light' ?
                             <button onClick={() => setTheme('dark')} className="text-black dark:text-white hover:bg-red-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-                                <SunIcon />
+                               <MoonIcon />
                             </button>
                             :
                             <button onClick={() => setTheme('light')} className="text-black dark:text-white hover:bg-red-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-                                <MoonIcon />
+                                <SunIcon />
                             </button>
                     }
                     <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
