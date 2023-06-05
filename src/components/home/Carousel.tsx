@@ -18,11 +18,11 @@ const imagesCarlusel = [
 
 export default function Carousel() {
     return (
-        <section className="py-8 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <section className="rounded sm:py-4 md:py-6 max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-4">
             <Slide showThumbs={false} showStatus={false} infiniteLoop showIndicators={true}  showArrows autoPlay >
                 {
                     imagesCarlusel.map(image => (
-                        <img key={image.id} className='w-full h-[450px] object-cover' width="100%" src={image.src} alt="Imagen del carusel" />
+                        <img key={image.id} className='rounded w-full h-[200px] sm:h-[200px] md:h-[350px] lg:h-[450px] xl:h-[500px] object-cover' width="100%" src={image.src} alt="Imagen del carusel" />
                     ))
                 }
 
