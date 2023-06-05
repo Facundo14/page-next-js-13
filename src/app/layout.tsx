@@ -23,6 +23,7 @@ export default function RootLayout({
         <main className="flex mx-7 border-cyan-300 border-2 dark:text-white flex-col items-center justify-between">
           {children}
         </main>
+
         <Footer />
       </body>
     </html>
