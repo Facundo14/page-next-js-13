@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const initialThemeState = () => {
     if(typeof window !== 'undefined'){
         if (localStorage.getItem('theme-informatteo')) {
