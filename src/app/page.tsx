@@ -1,4 +1,3 @@
-'use client'
 import Carousel from "@/components/home/Carousel";
 import Services from "@/components/home/Services";
 import { WhatsaapButton } from "@/components/shared/WhatsaapButton";
