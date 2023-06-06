@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 import { Carousel as Slide } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 const imagesCarlusel = [
@@ -22,7 +23,7 @@ export default function Carousel() {
             <Slide showThumbs={false} showStatus={false} infiniteLoop showIndicators={true}  showArrows autoPlay >
                 {
                     imagesCarlusel.map(image => (
-                        <img key={image.id} className='rounded w-full h-[200px] sm:h-[200px] md:h-[350px] lg:h-[450px] xl:h-[500px] object-cover' width="100%" src={image.src} alt="Imagen del carusel" />
+                        <Image width={500} height={500} key={image.id} loading="lazy" className='rounded w-full h-[200px] sm:h-[200px] md:h-[350px] lg:h-[450px] xl:h-[500px] object-cover' src={image.src} alt="Imagen del carusel" />
                     ))
                 }
 
