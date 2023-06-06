@@ -34,7 +34,9 @@ export default function Navegacion() {
 
                 <div className="flex md:order-2 items-center justify-center">
                     <div className="flex space-x-5 text-black dark:text-white hover:text-white rounded-md px-3 py-2 text-3xl font-medium">
-                        <Image width={30} height={30} src="/icons/instagram-color-icon.svg" alt="InstagramLogo" />
+                        <Link href={`https://www.instagram.com/informatteosistemas/`} target="_blank">
+                            <Image width={30} height={30} src="/icons/instagram-color-icon.svg" alt="InstagramLogo" />
+                        </Link>
                         <FacebookIcon fill="#1877F2" />
                     </div>
                     {
