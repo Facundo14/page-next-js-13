@@ -100,38 +100,40 @@ export default function Contact() {
                                     </div>
                                 </div>
                                 <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
-                                    <div className="align-start flex">
-                                        <div className="shrink-0">
-                                            <div className="inline-block dark:bg-white rounded-md bg-primary-100 p-4 text-primary">
-                                                <WhatsaapIcon height="2rem" />
+                                    <Link target="_blank" href="https://api.whatsapp.com/send?phone=%2B543765300783&text=">
+                                        <div className="align-start flex">
+                                            <div className="shrink-0">
+                                                <div className="inline-block dark:bg-white rounded-md bg-primary-100 p-4 text-primary">
+                                                    <WhatsaapIcon height="2rem" />
+                                                </div>
+                                            </div>
+                                            <div className="ml-6 grow">
+                                                <p className="mb-2 font-bold dark:text-white">WhatsApp</p>
+                                                
+                                                <p className="text-neutral-500 dark:text-neutral-200">
+                                                        +54 376 5300783
+                                                </p>
                                             </div>
                                         </div>
-                                        <div className="ml-6 grow">
-                                            <p className="mb-2 font-bold dark:text-white">WhatsApp</p>
-                                            
-                                            <p className="text-neutral-500 dark:text-neutral-200">
-                                                <Link target="_blank" href="https://api.whatsapp.com/send?phone=%2B543765300783&text=">
-                                                    +54 376 5300783
-                                                </Link>
-                                            </p>
-                                        </div>
-                                    </div>
+                                    </Link>
                                 </div>
                                 <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
-                                    <div className="align-start flex">
-                                        <div className="shrink-0">
-                                            <div className="inline-block dark:bg-white rounded-md bg-primary-100 p-4 text-primary">
-                                                <AddressIcon height="2rem" />
+                                    <Link target="_blank" href={`https://goo.gl/maps/zjdd2kosVFhZctbC8`} >
+                                        <div className="align-start flex">
+                                            <div className="shrink-0">
+                                                <div className="inline-block dark:bg-white rounded-md bg-primary-100 p-4 text-primary">
+                                                    <AddressIcon height="2rem" />
+                                                </div>
                                             </div>
+                                                <div className="ml-6 grow">
+                                                    <p className="mb-2 font-bold dark:text-white">Dirección</p>
+                                                    
+                                                    <p className="text-neutral-500 dark:text-neutral-200">
+                                                        San Luis 1529, Posadas, Misiones
+                                                    </p>
+                                                </div>
                                         </div>
-                                        <div className="ml-6 grow">
-                                            <p className="mb-2 font-bold dark:text-white">Dirección</p>
-                                            
-                                            <p className="text-neutral-500 dark:text-neutral-200">
-                                                San Luis 1529, Posadas, Misiones
-                                            </p>
-                                        </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
