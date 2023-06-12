@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Reparacion() {
   return (
-    <section>
+    <section className="animate__animated animate__fadeIn">
         <h1>Reparacion</h1>
     </section>
   )

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Develop() {
   return (
-    <section>
+    <section className="animate__animated animate__fadeIn">
         <h1>Desarrollo</h1>
     </section>
   )
