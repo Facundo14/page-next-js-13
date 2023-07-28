@@ -1,6 +1,12 @@
 import AddressIcon from "@/components/icons/AddressIcon";
 import WhatsaapIcon from "@/components/icons/WhatsaapIcon";
 import Link from "next/link";
+import { Metadata } from "next/types";
+
+export const metadata: Metadata = {
+    title: 'Contacto  | InforMatteo',
+    description: 'Contactanos | InforMatteo',
+};
 
 export default function Contact() {
     return (

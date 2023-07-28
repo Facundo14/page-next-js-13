@@ -1,7 +1,13 @@
+import PostsList from "@/components/blog/PostsList";
+import { Metadata } from "next/types";
+
+export const metadata: Metadata = {
+  title: 'Blog  | InforMatteo',
+  description: 'Noticias y actualidad | InforMatteo',
+};
+
 export default function Blog() {
-    return (
-        <section className="animate__animated animate__fadeIn">
-            <h1>Blog Page</h1>
-        </section>
-    )
+  return (
+    <PostsList />
+  );
 }
