@@ -50,7 +50,7 @@ const PostsList = () => {
                                 title={post.title.rendered} 
                                 excerpt={post.excerpt.rendered} 
                                 date={post.date} 
-                                link={post.link} 
+                                slug={post.slug} 
                                 image={ post._embedded 
                                         ? post._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url 
                                         : post.featured_media_url

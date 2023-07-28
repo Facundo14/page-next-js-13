@@ -3,13 +3,13 @@ interface Props {
     excerpt: string,
     image: string,
     date?: string,
-    link: string
+    slug: string
 }
-export const PostCard = ({ title, excerpt, image = 'https://placehold.co/600x400', date = '20/20/1225', link }: Props) => {
+export const PostCard = ({ title, excerpt, image = 'https://placehold.co/600x400', date = '20/20/1225', slug }: Props) => {
     return (
         <article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-                <img className="rounded-t-lg w-full h-56" width={450} height={400} src={image} alt={title} />
+                <img className="rounded-t-lg object-cover h-56" width={600} height={400} src={image} alt={title} />
             </a>
             <div className="p-5">
                 <a href="#">
@@ -19,7 +19,7 @@ export const PostCard = ({ title, excerpt, image = 'https://placehold.co/600x400
                     <span dangerouslySetInnerHTML={{ __html: excerpt }} />
                 </p>
                 <a
-                    href={link}
+                    href={`/blog/${slug}`}
                     className="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-md hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
                 >
                     Leer mas
