@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 interface Props {
     title: string,
     excerpt: string,
@@ -5,19 +7,19 @@ interface Props {
     date?: string,
     slug: string
 }
-export const PostCard = ({ title, excerpt, image = 'https://placehold.co/600x400', date = '20/20/1225', slug }: Props) => {
+export const PostCard = ({ title, excerpt, image = '/img/shared/no-image.svg', date = '20/20/1225', slug }: Props) => {
     return (
         <article className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-                <img className="rounded-t-lg object-cover h-56" width={600} height={400} src={image} alt={title} />
+                <Image className="rounded-t-lg object-cover h-56" width={600} height={400} src={image} alt={title} />
             </a>
             <div className="p-5">
                 <a href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
                 </a>
-                <p className="h-24 overflow-hidden text-gray-700 dark:text-gray-400">
+                <div className="h-24 overflow-hidden text-gray-700 dark:text-gray-400">
                     <span dangerouslySetInnerHTML={{ __html: excerpt }} />
-                </p>
+                </div>
                 <a
                     href={`/blog/${slug}`}
                     className="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-md hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
