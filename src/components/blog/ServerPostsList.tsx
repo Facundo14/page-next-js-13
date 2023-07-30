@@ -1,8 +1,7 @@
 import { PostCard } from "./Card";
 
 async function getPosts(page: number) {
-    const postsPerPage = 3;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API_URL}/wp-json/wp/v2/posts?page=${page}&per_page=${postsPerPage}&_embed=wp:featuredmedia`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API_URL}/wp-json/wp/v2/posts?page=${page}&_embed=wp:featuredmedia`);
     const data = await res.json();
     return data;
 }
@@ -10,12 +9,6 @@ async function getPosts(page: number) {
 
 export default async function ServerPostsList() {
     const posts = await getPosts(1);
-
-    const nextPage = async (page: number) => {
-        const posts = await getPosts(page + 1);
-        return posts;
-    }
-
     return (
         <section className="animate__animated animate__fadeIn flex flex-col justify-between min-h-[calc(100vh-200px)]">
             <h1 className="text-4xl font-bold text-center mb-5">Blog</h1>
@@ -41,14 +34,14 @@ export default async function ServerPostsList() {
                     ))}
                 </div>
             </div>
-            <div className="flex justify-center pb-5">
-                {/* <button onClick={prevPage} className="bg-red-500 p-3 rounded-md hover:bg-red-800 dark:bg-red-700 dark:text-white text-white dark:hover:bg-red-900 font-bold" disabled={page === 1}>
+            {/* <div className="flex justify-center pb-5">
+        <button onClick={prevPage} className="bg-red-500 p-3 rounded-md hover:bg-red-800 dark:bg-red-700 dark:text-white text-white dark:hover:bg-red-900 font-bold" disabled={page === 1}>
             Anterior
-        </button> */}
-                <button onClick={() => nextPage(1)} className="bg-red-500 p-3 rounded-md hover:bg-red-800 dark:bg-red-700 dark:text-white text-white dark:hover:bg-red-900 ml-5 font-bold">
-                    Siguiente
-                </button>
-            </div>
+        </button>
+        <button onClick={nextPage} className="bg-red-500 p-3 rounded-md hover:bg-red-800 dark:bg-red-700 dark:text-white text-white dark:hover:bg-red-900 ml-5 font-bold" disabled={isLastPage}>
+            Siguiente
+        </button>
+    </div> */}
         </section>
     )
 }
